@@ -1,0 +1,166 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About us",
+    "mentors": "Mentors",
+    "contact": "Contact us",
+    "register": "Register now"
+  },
+  "hero": {
+    "title": "Find the Right Mentor",
+    "titleHighlight": "",
+    "subtitle2": "for Your Success",
+    "subtitle": "A platform where qualified mentors showcase their skills, and students find the perfect match for their learning journey.",
+    "findMentor": "Find a Mentor",
+    "joinAsMentor": "Join as a Mentor",
+    "teacherCard": {
+      "name": "Sarah Johnson",
+      "subject": "Math & Science Mentor",
+      "experience": "Experience",
+      "experienceValue": "8 years",
+      "rating": "Rating",
+      "ratingValue": "4.9",
+      "rate": "Rate",
+      "rateValue": "$35/hour"
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Get started with SkillBridge in just a few simple steps",
+    "steps": {
+      "browse": {
+        "title": "Browse Mentors",
+        "description": "Explore our diverse community of expert mentors across various fields and specializations."
+      },
+      "connect": {
+        "title": "Connect & Match",
+        "description": "Find the perfect mentor based on your goals, schedule, and learning preferences."
+      },
+      "learn": {
+        "title": "Start Learning",
+        "description": "Begin your personalized learning journey with one-on-one sessions and guidance."
+      }
+    }
+  },
+  "whyChooseUs": {
+    "title": "Why Choose SkillBridge?",
+    "subtitle": "We're committed to providing the best mentorship experience",
+    "features": {
+      "quality": {
+        "title": "Verified Mentors",
+        "description": "All our mentors are carefully vetted professionals with proven track records in their fields."
+      },
+      "flexible": {
+        "title": "Flexible Scheduling",
+        "description": "Book sessions that fit your schedule with our easy-to-use reservation system."
+      },
+      "affordable": {
+        "title": "Affordable Pricing",
+        "description": "Quality mentorship shouldn't cost a fortune. Find mentors at competitive rates."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Our dedicated support team is always there to help you succeed."
+      }
+    },
+    "searchResults": {
+      "math": "Math & Science Mentors",
+      "mathCount": "127 available",
+      "tech": "Technology Mentors",
+      "techCount": "89 available",
+      "business": "Business Mentors",
+      "businessCount": "156 available"
+    }
+  },
+  "forMentors": {
+    "title": "For Mentors",
+    "subtitle": "Share your expertise and make a difference",
+    "description": "Join our community of expert mentors and help shape the next generation of professionals. Set your own schedule, rates, and teaching style.",
+    "benefits": {
+      "income": "Earn additional income",
+      "impact": "Make a meaningful impact",
+      "network": "Expand your network",
+      "skills": "Develop your teaching skills"
+    },
+    "joinButton": "Become a Mentor"
+  },
+  "forStudents": {
+    "title": "For Students",
+    "subtitle": "Accelerate your learning journey",
+    "description": "Get personalized guidance from industry experts. Whether you're looking to advance your career, learn new skills, or achieve specific goals.",
+    "cardTitle": "Find Your Perfect Mentor",
+    "mentorTypes": {
+      "math": "Math & Science Mentors",
+      "tech": "Technology Mentors",
+      "business": "Business Mentors",
+      "status": "Available"
+    },
+    "benefits": {
+      "personalized": "Personalized learning experience tailored to your goals",
+      "expert": "Expert advice from verified industry professionals",
+      "flexible": "Flexible scheduling that adapts to your busy lifestyle",
+      "affordable": "Affordable rates for all budgets"
+    },
+    "startButton": "Start Learning"
+  },
+  "testimonials": {
+    "title": "What Our Users Say",
+    "subtitle": "Don't just take our word for it",
+    "reviews": {
+      "sarah": {
+        "name": "Maria Rodriguez",
+        "role": "Parent",
+        "content": "Finally, an easy way to find tutors near me! My daughter found the perfect math teacher in just 2 days."
+      },
+      "michael": {
+        "name": "David Chen",
+        "role": "Mentor",
+        "content": "I got my first 5 students in a week! This platform made it so easy to showcase my skills and connect with families."
+      }
+    },
+    "newsletter": {
+      "title": "Be the First to Know!",
+      "description": "Get notified when we launch and receive exclusive early access.",
+      "placeholder": "Enter your email address",
+      "button": "Subscribe"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": {
+      "whatIs": {
+        "question": "What is SkillBridge?",
+        "answer": "SkillBridge is a mentorship platform that connects learners with experienced professionals across various fields. We facilitate one-on-one learning relationships to help you achieve your career and personal development goals."
+      },
+      "howToStart": {
+        "question": "How do I get started?",
+        "answer": "Simply create an account, browse our mentor profiles, and book a session with the mentor that best fits your needs and goals. You can start learning right away!"
+      },
+      "pricing": {
+        "question": "How much does it cost?",
+        "answer": "Pricing varies by mentor and is set by each individual mentor based on their expertise and experience. You can find mentors at various price points to fit your budget."
+      },
+      "guarantee": {
+        "question": "Is there a satisfaction guarantee?",
+        "answer": "Yes! We're committed to your success. If you're not satisfied with your first session, we'll help you find a better match or provide a refund."
+      }
+    }
+  },
+  "footer": {
+    "description": "Connecting learners with expert mentors worldwide. Start your learning journey today.",
+    "quickLinks": "Quick Links",
+    "support": "Support",
+    "followUs": "Follow Us",
+    "links": {
+      "about": "About Us",
+      "mentors": "Find Mentors",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "help": "Help Center",
+      "faq": "FAQ",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "rights": "All rights reserved."
+  }
+}

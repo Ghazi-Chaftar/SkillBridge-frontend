@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+echo "============>> Checking commit branch name..."
+
+# Run commitlint and show the message if it fails
+if ! npx commitlint --edit "$1"; then
+  echo "Commit message must follow the format: <type>(<scope>): <description>
+Examples:
+  - feat(auth): add user authentication
+  - fix(cart): fix item quantity bug
+  - docs(readme): update installation guide
+  - chore(deps): update dependencies"
+  exit 1
+fi

@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "title": "Contact Us",
+    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+  },
+  "info": {
+    "email": {
+      "title": "Email Us",
+      "value": "hello@skillbridge.com"
+    },
+    "phone": {
+      "title": "Call Us",
+      "value": "+1 (555) 123-4567"
+    },
+    "address": {
+      "title": "Visit Us",
+      "value": "123 Learning St, Education City, EC 12345"
+    },
+    "hours": {
+      "title": "Business Hours",
+      "value": "Mon-Fri: 9AM-6PM EST"
+    }
+  },
+  "form": {
+    "title": "Send us a Message",
+    "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+    "fields": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "submit": "Send Message"
+  },
+  "faq": {
+    "title": "Quick Help",
+    "categories": {
+      "general": {
+        "question": "General Questions",
+        "answer": "Find answers to common questions about SkillBridge, our mentors, and how to get started."
+      },
+      "technical": {
+        "question": "Technical Support",
+        "answer": "Having technical issues? Check our help center or contact our technical support team."
+      },
+      "billing": {
+        "question": "Billing & Payments",
+        "answer": "Questions about payments, refunds, or billing? We're here to help with all financial inquiries."
+      },
+      "account": {
+        "question": "Account Management",
+        "answer": "Need help with your account settings, profile, or security? We'll guide you through it."
+      }
+    }
+  },
+  "support": {
+    "title": "Need Immediate Help?",
+    "description": "Our support team is available 24/7 to assist you with any urgent questions or issues.",
+    "button": "Live Chat Support"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "mentors": "Mentors",
+    "contact": "Contact",
+    "register": "S'inscrire"
+  },
+  "hero": {
+    "title": "Trouvez le Bon Mentor",
+    "titleHighlight": "",
+    "subtitle2": "pour Votre Réussite",
+    "subtitle": "Une plateforme où des mentors qualifiés mettent en valeur leurs compétences, et les étudiants trouvent le partenaire idéal pour leur parcours d'apprentissage.",
+    "findMentor": "Trouver un Mentor",
+    "joinAsMentor": "Devenir un Mentor",
+    "teacherCard": {
+      "name": "Sarah Johnson",
+      "subject": "Mentor en Mathématiques & Sciences",
+      "experience": "Expérience",
+      "experienceValue": "8 ans",
+      "rating": "Évaluation",
+      "ratingValue": "4.9",
+      "rate": "Tarif",
+      "rateValue": "35€/heure"
+    }
+  },
+  "howItWorks": {
+    "title": "Comment Ça Marche",
+    "subtitle": "Commencez avec SkillBridge en quelques étapes simples",
+    "steps": {
+      "browse": {
+        "title": "Parcourir les Mentors",
+        "description": "Explorez notre communauté diversifiée de mentors experts dans divers domaines et spécialisations."
+      },
+      "connect": {
+        "title": "Connecter et Associer",
+        "description": "Trouvez le mentor parfait en fonction de vos objectifs, horaires et préférences d'apprentissage."
+      },
+      "learn": {
+        "title": "Commencer à Apprendre",
+        "description": "Commencez votre parcours d'apprentissage personnalisé avec des sessions individuelles et des conseils."
+      }
+    }
+  },
+
+  "whyChooseUs": {
+    "title": "Pourquoi Choisir SkillBridge ?",
+    "subtitle": "Nous nous engageons à offrir la meilleure expérience de mentorat",
+    "features": {
+      "quality": {
+        "title": "Mentors Vérifiés",
+        "description": "Tous nos mentors sont des professionnels soigneusement vérifiés avec des antécédents prouvés dans leurs domaines."
+      },
+      "flexible": {
+        "title": "Horaires Flexibles",
+        "description": "Réservez des sessions qui correspondent à votre emploi du temps avec notre système de réservation facile à utiliser."
+      },
+      "affordable": {
+        "title": "Prix Abordables",
+        "description": "Un mentorat de qualité ne devrait pas coûter une fortune. Trouvez des mentors à des tarifs compétitifs."
+      },
+      "support": {
+        "title": "Support 24/7",
+        "description": "Notre équipe de support dédiée est toujours là pour vous aider à réussir."
+      }
+    },
+    "searchResults": {
+      "math": "Mentors Math & Sciences",
+      "mathCount": "127 disponibles",
+      "tech": "Mentors Technologie",
+      "techCount": "89 disponibles",
+      "business": "Mentors Business",
+      "businessCount": "156 disponibles"
+    }
+  },
+  "forMentors": {
+    "title": "Pour les Mentors",
+    "subtitle": "Partagez votre expertise et faites la différence",
+    "description": "Rejoignez notre communauté de mentors experts et aidez à façonner la prochaine génération de professionnels. Définissez votre propre emploi du temps, vos tarifs et votre style d'enseignement.",
+    "benefits": {
+      "income": "Gagner un revenu supplémentaire",
+      "impact": "Avoir un impact significatif",
+      "network": "Élargir votre réseau",
+      "skills": "Développer vos compétences d'enseignement"
+    },
+    "joinButton": "Devenir Mentor"
+  },
+  "forStudents": {
+    "title": "Pour les Étudiants",
+    "subtitle": "Accélérez votre parcours d'apprentissage",
+    "description": "Obtenez des conseils personnalisés d'experts de l'industrie. Que vous cherchiez à faire progresser votre carrière, apprendre de nouvelles compétences ou atteindre des objectifs spécifiques.",
+    "cardTitle": "Trouvez Votre Mentor Parfait",
+    "mentorTypes": {
+      "math": "Mentors Math & Sciences",
+      "tech": "Mentors Technologie",
+      "business": "Mentors Business",
+      "status": "Disponible"
+    },
+    "benefits": {
+      "personalized": "Expérience d'apprentissage personnalisée adaptée à vos objectifs",
+      "expert": "Conseils d'experts de professionnels vérifiés de l'industrie",
+      "flexible": "Horaires flexibles qui s'adaptent à votre style de vie chargé",
+      "affordable": "Tarifs abordables pour tous les budgets"
+    },
+    "startButton": "Commencer à Apprendre"
+  },
+  "testimonials": {
+    "title": "Ce que Disent Nos Utilisateurs",
+    "subtitle": "Ne vous fiez pas seulement à notre parole",
+    "reviews": {
+      "sarah": {
+        "name": "Maria Rodriguez",
+        "role": "Parent",
+        "content": "Enfin, un moyen facile de trouver des tuteurs près de chez moi ! Ma fille a trouvé le parfait professeur de mathématiques en seulement 2 jours."
+      },
+      "michael": {
+        "name": "David Chen",
+        "role": "Mentor",
+        "content": "J'ai obtenu mes 5 premiers étudiants en une semaine ! Cette plateforme a rendu si facile la mise en valeur de mes compétences et la connexion avec des familles."
+      }
+    },
+    "newsletter": {
+      "title": "Soyez le Premier à Savoir !",
+      "description": "Soyez notifié lors de notre lancement et recevez un accès anticipé exclusif.",
+      "placeholder": "Entrez votre adresse email",
+      "button": "S'abonner"
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "questions": {
+      "whatIs": {
+        "question": "Qu'est-ce que SkillBridge ?",
+        "answer": "SkillBridge est une plateforme de mentorat qui connecte les apprenants avec des professionnels expérimentés dans divers domaines. Nous facilitons les relations d'apprentissage individuelles pour vous aider à atteindre vos objectifs de carrière et de développement personnel."
+      },
+      "howToStart": {
+        "question": "Comment commencer ?",
+        "answer": "Créez simplement un compte, parcourez nos profils de mentors et réservez une session avec le mentor qui correspond le mieux à vos besoins et objectifs. Vous pouvez commencer à apprendre tout de suite !"
+      },
+      "pricing": {
+        "question": "Combien ça coûte ?",
+        "answer": "Les prix varient selon le mentor et sont fixés par chaque mentor individuel en fonction de son expertise et de son expérience. Vous pouvez trouver des mentors à différents niveaux de prix pour s'adapter à votre budget."
+      },
+      "guarantee": {
+        "question": "Y a-t-il une garantie de satisfaction ?",
+        "answer": "Oui ! Nous nous engageons pour votre succès. Si vous n'êtes pas satisfait de votre première session, nous vous aiderons à trouver une meilleure correspondance ou fournirons un remboursement."
+      }
+    }
+  },
+  "footer": {
+    "description": "Connecter les apprenants avec des mentors experts dans le monde entier. Commencez votre parcours d'apprentissage aujourd'hui.",
+    "quickLinks": "Liens Rapides",
+    "support": "Support",
+    "followUs": "Suivez-nous",
+    "links": {
+      "about": "À Propos",
+      "mentors": "Trouver des Mentors",
+      "pricing": "Tarifs",
+      "contact": "Contact",
+      "help": "Centre d'Aide",
+      "faq": "FAQ",
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation"
+    },
+    "rights": "Tous droits réservés."
+  }
+}

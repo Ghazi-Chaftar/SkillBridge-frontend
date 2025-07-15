@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "title": "About SkillBridge",
+    "subtitle": "We're on a mission to connect learners with expert mentors worldwide, making quality mentorship accessible to everyone."
+  },
+  "stats": {
+    "mentors": {
+      "number": "1,000+",
+      "label": "Expert Mentors"
+    },
+    "students": {
+      "number": "5,000+",
+      "label": "Active Learners"
+    },
+    "sessions": {
+      "number": "25,000+",
+      "label": "Sessions Completed"
+    },
+    "satisfaction": {
+      "number": "98%",
+      "label": "Satisfaction Rate"
+    }
+  },
+  "story": {
+    "title": "Our Story",
+    "paragraph1": "SkillBridge was born from a simple observation: too many talented people struggle to find the right mentorship, while experienced professionals want to share their knowledge but lack the platform to do so effectively.",
+    "paragraph2": "Founded in 2023, we set out to bridge this gap by creating a platform that makes mentorship accessible, affordable, and effective for everyone involved.",
+    "paragraph3": "Today, we're proud to connect thousands of learners with expert mentors across various industries, helping people achieve their career goals and personal development objectives.",
+    "mission": "Our Mission",
+    "missionText": "To democratize access to quality mentorship and create a global community of learners and mentors."
+  },
+  "values": {
+    "title": "Our Values",
+    "subtitle": "The principles that guide everything we do",
+    "mission": {
+      "title": "Mission-Driven",
+      "description": "We're committed to making mentorship accessible to everyone, regardless of background or location."
+    },
+    "vision": {
+      "title": "Visionary",
+      "description": "We believe in the transformative power of mentorship and its ability to change lives and careers."
+    },
+    "excellence": {
+      "title": "Excellence",
+      "description": "We maintain the highest standards in mentor vetting and platform quality to ensure the best experience."
+    },
+    "community": {
+      "title": "Community",
+      "description": "We foster a supportive community where learning and growth are celebrated and encouraged."
+    }
+  },
+  "team": {
+    "title": "Meet Our Team",
+    "subtitle": "The passionate people behind SkillBridge",
+    "john": {
+      "name": "John Smith",
+      "role": "CEO & Co-Founder",
+      "bio": "Former tech executive with 15+ years of experience in building scalable platforms and mentoring teams."
+    },
+    "sarah": {
+      "name": "Sarah Johnson",
+      "role": "CTO & Co-Founder",
+      "bio": "Full-stack engineer and tech mentor passionate about creating tools that empower learning and growth."
+    },
+    "michael": {
+      "name": "Michael Chen",
+      "role": "Head of Community",
+      "bio": "Education specialist focused on building meaningful connections between mentors and learners worldwide."
+    }
+  }
+}

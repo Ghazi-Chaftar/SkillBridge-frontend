@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "title": "Contactez-Nous",
+    "subtitle": "Vous avez des questions ? Nous serions ravis de vous entendre. Envoyez-nous un message et nous vous répondrons dès que possible."
+  },
+  "info": {
+    "email": {
+      "title": "Envoyez-nous un Email",
+      "value": "hello@skillbridge.com"
+    },
+    "phone": {
+      "title": "Appelez-Nous",
+      "value": "+1 (555) 123-4567"
+    },
+    "address": {
+      "title": "Visitez-Nous",
+      "value": "123 Learning St, Education City, EC 12345"
+    },
+    "hours": {
+      "title": "Heures d'Ouverture",
+      "value": "Lun-Ven : 9h-18h EST"
+    }
+  },
+  "form": {
+    "title": "Envoyez-nous un Message",
+    "subtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures.",
+    "fields": {
+      "name": "Nom Complet",
+      "email": "Adresse Email",
+      "subject": "Sujet",
+      "message": "Message"
+    },
+    "submit": "Envoyer le Message"
+  },
+  "faq": {
+    "title": "Aide Rapide",
+    "categories": {
+      "general": {
+        "question": "Questions Générales",
+        "answer": "Trouvez des réponses aux questions courantes sur SkillBridge, nos mentors et comment commencer."
+      },
+      "technical": {
+        "question": "Support Technique",
+        "answer": "Problèmes techniques ? Consultez notre centre d'aide ou contactez notre équipe de support technique."
+      },
+      "billing": {
+        "question": "Facturation et Paiements",
+        "answer": "Questions sur les paiements, remboursements ou facturation ? Nous sommes là pour toutes vos questions financières."
+      },
+      "account": {
+        "question": "Gestion de Compte",
+        "answer": "Besoin d'aide avec vos paramètres de compte, profil ou sécurité ? Nous vous guiderons."
+      }
+    }
+  },
+  "support": {
+    "title": "Besoin d'Aide Immédiate ?",
+    "description": "Notre équipe de support est disponible 24h/7j pour vous aider avec toute question urgente ou problème.",
+    "button": "Support Chat en Direct"
+  }
+}

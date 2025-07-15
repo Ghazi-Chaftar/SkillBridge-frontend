@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+echo "============>> Checking branch name..."
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+PROTECTED_BRANCHES="^(main|master|dev)"
+if [[ $BRANCH =~ $PROTECTED_BRANCHES ]]; then
+    echo "============>> Direct commits to the $BRANCH branch are not allowed. Please choose a new branch name."
+    exit 1
+fi
+echo "============>> Linting your files and fixing them if needed..."
+npx  lint-staged
