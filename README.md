@@ -1,7 +1,7 @@
 # SkillBridge - Mentorship Platform Frontend
 
 <div align="center">
-  <img src="public/images/skillbridge-logo.png" alt="SkillBridge Logo" width="200" height="200">
+  <img src="public/images/SkillBridgeLogo.png" alt="SkillBridge Logo" width="200" height="200">
   
   **Bridge the gap to your success**
   
