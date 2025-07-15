@@ -15,7 +15,6 @@ import {
   CarouselNext,
   CarouselPrevious
 } from '@/src/app/shared/components'
-import { Product } from '@/src/entities/supplier'
 import { usePathname } from '@/src/navigation'
 import { pathnameType } from '@/src/types'
 
@@ -39,7 +38,6 @@ type CarouselCardProps = {
   phoneNumber?: string
   blockModify?: boolean
   className?: string
-  product?: Product
 }
 
 const CarouselCard: React.FC<CarouselCardProps> = ({
@@ -57,8 +55,7 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
   address,
   phoneNumber,
   blockModify,
-  className,
-  product
+  className
 }) => {
   const getLocalizedUrl = useLocalizedUrl()
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -200,13 +197,7 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
               </div>
             )}
           </div>
-          {product && (
-            <div className='flex flex-col gap-1'>
-              <p className='truncate text-sm text-[#888FA7]'>
-                {product.categoryLabel}
-              </p>
-            </div>
-          )}
+
           <div className='mt-3 flex w-full items-center justify-between '>
             <div
               className={cn(
@@ -216,7 +207,7 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
             >
               <p>
                 {!isNaN(Number(subtitle))
-                  ? `${Number(subtitle) % 1 === 0 ? Number(subtitle) : Number(subtitle).toFixed(2)} ${product?.currency?.code}`
+                  ? `${Number(subtitle) % 1 === 0 ? Number(subtitle) : Number(subtitle).toFixed(2)}`
                   : subtitle}
               </p>
             </div>

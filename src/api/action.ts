@@ -3,10 +3,24 @@ import Cookies from 'js-cookie'
 
 import { useRouter } from '@/src/navigation'
 
-import { User } from '../entities'
 import { TokenRequest } from '../types'
 import axiosInstance, { getTokenFromCookies } from './axiosConfig'
 
+export type User = {
+  id?: number
+  username?: string
+  email: string
+  firstName?: string
+  lastName?: string
+  phoneNumber?: string
+  userType?: string
+  image?: string
+  isDeleted?: boolean
+  isSuspended?: boolean
+  suspensionStartDate?: string | null
+  suspensionEndDate?: string | null
+  deviceId?: number
+}
 export const getBackEndBaseURL = (): string => {
   return process.env.NEXT_PUBLIC_BACKEND_URL || ''
 }

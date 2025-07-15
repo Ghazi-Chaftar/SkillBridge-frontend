@@ -3,10 +3,6 @@ import { type ClassValue, clsx } from 'clsx'
 import Cookies from 'js-cookie'
 import { twMerge } from 'tailwind-merge'
 
-import { ImageType as UploaderImageType } from '@/src/app/shared/hooks/useImageUploader'
-import { ImageType } from '@/src/app/shared/hooks/useOneImageUploader'
-import { Image } from '@/src/types'
-
 export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs))
 }
@@ -78,12 +74,6 @@ export const checkFileSize = (file: File, maxSizeMB: number): boolean => {
   return fileSizeMB <= maxSizeMB
 }
 
-export interface HandleUploadProps {
-  image: ImageType | null | undefined
-  formDataKey?: string
-  updatePictureMutation?: UseMutationResult<any, any, FormData, unknown>
-}
-
 export interface HandleDeleteProps {
   formDataKey?: string
   updatePictureMutation?: UseMutationResult<any, any, FormData, unknown>
@@ -93,41 +83,6 @@ export interface UploadResult {
   success: boolean
   message: string
   data?: any
-}
-
-/**
- * Handles the upload of an image file.
- * @param {HandleUploadProps} props - The properties for the upload handler.
- * @returns {Promise<UploadResult>} - Returns a promise that resolves when the upload is complete.
- */
-export const handleUpload = async ({
-  image,
-  formDataKey,
-  updatePictureMutation
-}: HandleUploadProps): Promise<UploadResult> => {
-  if (image) {
-    try {
-      const formData = new FormData()
-      formData.append(formDataKey!, image.file)
-      const response = await updatePictureMutation!.mutateAsync(formData)
-      return {
-        success: true,
-        message: 'Image uploaded successfully.',
-        data: response
-      }
-    } catch (error) {
-      return {
-        success: false,
-        message: 'Image upload failed.',
-        data: error
-      }
-    }
-  } else {
-    return {
-      success: false,
-      message: 'No image provided.'
-    }
-  }
 }
 
 /**
@@ -189,20 +144,6 @@ export const dataURLToBlob = (dataURL: string): Blob => {
 export const dataURLToBlobURL = (dataURL: string): string => {
   const blob = dataURLToBlob(dataURL)
   return URL.createObjectURL(blob)
-}
-
-export const buildImage = (backendImages: Image[]): UploaderImageType[] => {
-  return backendImages?.map(({ id, image }) => ({
-    name: id.toString(),
-    url: getFileUrl(image)!
-  }))
-}
-
-export const buildOneImage = (backendImages: string): UploaderImageType => {
-  return {
-    name: backendImages?.toString(),
-    url: getFileUrl(backendImages)!
-  }
 }
 
 export const snakeToCamel = (str: string): string => {

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { useArchitectStore } from '@/src/lib/useArchitectStore'
-
 interface CurrencyLabelProps {
   className?: string
   amount: number | string
@@ -15,12 +13,7 @@ const CurrencyLabel: React.FC<CurrencyLabelProps> = ({
   amount,
   style
 }) => {
-  const { quoteTemplate } = useArchitectStore()
-  return (
-    <p className={className} style={style}>{`${amount} ${
-      quoteTemplate?.currency ? quoteTemplate.currency : 'TND'
-    }`}</p>
-  )
+  return <p className={className} style={style}>{`${amount} ${'TND'}`}</p>
 }
 
 export default CurrencyLabel
