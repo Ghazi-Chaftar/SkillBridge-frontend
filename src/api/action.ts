@@ -3,7 +3,6 @@ import Cookies from 'js-cookie'
 
 import { useRouter } from '@/src/navigation'
 
-import { TokenRequest } from '../types'
 import axiosInstance, { getTokenFromCookies } from './axiosConfig'
 
 export type User = {
@@ -20,6 +19,7 @@ export type User = {
   suspensionStartDate?: string | null
   suspensionEndDate?: string | null
   deviceId?: number
+  gender?: string
 }
 export const getBackEndBaseURL = (): string => {
   return process.env.NEXT_PUBLIC_BACKEND_URL || ''
@@ -70,39 +70,6 @@ export const putData = async (
 
 export const deleteData = async (endpoint: string): Promise<AxiosResponse> => {
   return axiosInstance.delete(endpoint)
-}
-
-export const getTokens = async (
-  tokenData: TokenRequest
-): Promise<AxiosResponse<{ access: string; refresh: string; user: User }>> => {
-  const response = await axiosInstance.post<{
-    access: string
-    refresh: string
-    user: User
-  }>('/api/users/login-email/', tokenData)
-  Cookies.set('accessToken', response.data.access)
-  Cookies.set('refreshToken', response.data.refresh)
-  Cookies.set('user', JSON.stringify(response.data.user))
-  Cookies.set('userType', response.data.user.userType as string)
-  return response
-}
-
-export const getArchitectTokens = async (
-  tokenData: TokenRequest
-): Promise<AxiosResponse<{ access: string; refresh: string; user: User }>> => {
-  const response = await axiosInstance.post<{
-    access: string
-    refresh: string
-    user: User
-  }>('/api/users/login-email/', tokenData)
-  if (response.data.user.userType === 'Architect') {
-    Cookies.set('accessToken', response.data.access)
-    Cookies.set('refreshToken', response.data.refresh)
-    Cookies.set('user', JSON.stringify(response.data.user))
-    Cookies.set('userType', response.data.user.userType as string)
-  }
-
-  return response
 }
 
 export const putFilesData = async (

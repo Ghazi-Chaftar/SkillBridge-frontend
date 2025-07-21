@@ -1,0 +1,66 @@
+{
+  "header": {
+    "searchPlaceholder": "بحث..."
+  },
+  "sidebar": {
+    "title": "لوحة تحكم المرشد",
+    "dashboard": "لوحة التحكم",
+    "profile": "الملف الشخصي",
+    "sessions": "الجلسات",
+    "students": "الطلاب",
+    "messages": "الرسائل",
+    "earnings": "الأرباح",
+    "analytics": "التحليلات",
+    "settings": "الإعدادات",
+    "security": "الأمان",
+    "logout": "تسجيل الخروج"
+  },
+  "profile": {
+    "title": "ملف المرشد الشخصي",
+    "editProfile": "تعديل الملف الشخصي",
+    "saveChanges": "حفظ التغييرات",
+    "phoneNumber": "رقم الهاتف",
+    "gender": "الجنس",
+    "selectGender": "اختر الجنس",
+    "male": "ذكر",
+    "female": "أنثى",
+    "other": "أخرى",
+    "aboutMe": "نبذة عني",
+    "subjects": "المواد التي أدرسها",
+    "teachingMethods": {
+      "title": "طرق التدريس",
+      "online": "التعلم عبر الإنترنت",
+      "onlineDesc": "جلسات عن بُعد عبر مكالمات الفيديو والمنصات الرقمية",
+      "inPerson": "التعلم وجهاً لوجه",
+      "inPersonDesc": "جلسات مباشرة في الأماكن الفعلية",
+      "hybrid": "التعلم المختلط",
+      "hybridDesc": "مزيج مرن من الجلسات عبر الإنترنت ووجهاً لوجه"
+    },
+    "education": "التعليم",
+    "availability": "التوفر",
+    "levels": "مستويات التدريس",
+    "languages": "اللغات",
+    "hourlyRate": "الأجر بالساعة",
+    "totalSessions": "إجمالي الجلسات",
+    "yearsExperience": "سنوات الخبرة",
+    "professionalMentor": "مرشد محترف",
+    "firstNamePlaceholder": "الاسم الأول",
+    "lastNamePlaceholder": "اسم العائلة",
+    "locationPlaceholder": "الموقع",
+    "phoneNumberPlaceholder": "رقم الهاتف",
+    "genderPlaceholder": "اختر الجنس",
+    "bioPlaceholder": "أخبر الطلاب عن نفسك وخبرتك وأسلوب التدريس...",
+    "addLanguagePlaceholder": "إضافة لغة",
+    "addSubjectPlaceholder": "إضافة مادة",
+    "addDegreePlaceholder": "إضافة شهادة/تأهيل",
+    "maxEducationReached": "الحد الأقصى 4 شهادات مسموح",
+    "maxEducationLimit": "يمكنك إضافة حد أقصى 4 شهادات أو مؤهلات.",
+    "noEducationYet": "لم يتم إضافة معلومات تعليمية بعد.",
+    "addAvailabilityPlaceholder": "إضافة وقت متاح",
+    "levelOptions": {
+      "primarySchool": "المدرسة الابتدائية",
+      "highSchool": "المدرسة الثانوية",
+      "university": "الجامعة"
+    }
+  }
+}

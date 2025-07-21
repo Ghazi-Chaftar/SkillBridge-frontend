@@ -4,6 +4,7 @@ import {
   emailValidation,
   fieldValidation,
   passwordValidation,
+  phoneValidation,
   requiredValidation
 } from '@/src/validations'
 
@@ -12,6 +13,7 @@ export const registerSchema = z
     firstName: fieldValidation,
     lastName: fieldValidation,
     email: emailValidation,
+    phoneNumber: phoneValidation,
     password: passwordValidation,
     confirmPassword: requiredValidation
   })

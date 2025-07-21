@@ -4,20 +4,22 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { SubmitHandler } from 'react-hook-form'
 
-import { Button, Form, FormElement, Input } from '@/src/app/shared/components'
+import {
+  Button,
+  Form,
+  FormElement,
+  Input,
+  PhoneInput
+} from '@/src/app/shared/components'
 import useCustomForm from '@/src/app/shared/hooks/useCustomForm'
 
+import { useLoginUser } from '../hooks/useLoginUser'
+import { useRegisterUser } from '../hooks/useRegisterUser'
 import { RegisterFormData, registerSchema } from '../schemas/RegisterSchema'
 
 // Register form schema
 
-interface RegistrationFormProps {
-  onSubmit?: (data: RegisterFormData) => void
-}
-
-const RegistrationForm: React.FC<RegistrationFormProps> = ({
-  onSubmit: onSubmitProp
-}) => {
+const RegistrationForm: React.FC = () => {
   const t = useTranslations('auth')
 
   const { form, handleSubmit, control, reset } = useCustomForm(
@@ -28,18 +30,22 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
       lastName: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      phoneNumber: ''
     }
   )
-
+  const registerUserMutation = useRegisterUser('auth')
+  const loginUserMutation = useLoginUser('auth')
   const onSubmit: SubmitHandler<RegisterFormData> = data => {
-    if (onSubmitProp) {
-      onSubmitProp(data)
-    } else {
-      // Default registration logic here
-      // Handle registration submission
-    }
-    reset()
+    registerUserMutation.mutate(data, {
+      onSuccess: () => {
+        loginUserMutation.mutate({
+          username: data.email,
+          password: data.password
+        })
+        reset()
+      }
+    })
   }
 
   return (
@@ -76,6 +82,17 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
             placeholder={t('form.emailPlaceholder')}
             type='email'
             className='h-12'
+          />
+        </FormElement>
+        <FormElement
+          control={control}
+          name='phoneNumber'
+          label={t('form.phoneNumber')}
+        >
+          <PhoneInput
+            defaultCountry='TN'
+            className='w-full'
+            placeholder={t('form.phoneNumberPlaceholder')}
           />
         </FormElement>
 
@@ -124,11 +141,24 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
           <Button
             type='submit'
-            className='h-12 w-full bg-purple-600 text-white hover:bg-purple-700'
+            disabled={registerUserMutation.isPending}
+            className='h-12 w-full bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50'
           >
-            {t('form.registerButton')}
+            {registerUserMutation.isPending
+              ? 'Creating Account...'
+              : t('form.registerButton')}
           </Button>
         </motion.div>
+
+        {/* Error Display */}
+        {registerUserMutation.isError && (
+          <div className='rounded-md bg-red-50 p-4'>
+            <div className='text-sm text-red-700'>
+              {registerUserMutation.error?.message ||
+                'Registration failed. Please try again.'}
+            </div>
+          </div>
+        )}
       </form>
     </Form>
   )

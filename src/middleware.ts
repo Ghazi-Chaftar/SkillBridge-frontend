@@ -14,10 +14,10 @@ const customMiddleware: CustomMiddleware = async req => {
   const origin = req.nextUrl.origin
   const locale = url.split('/')[1]
   const token = req.cookies.get('accessToken')
-  const isOnTeacherPath = url.startsWith(`/${locale}/teacher`)
+  const isOnTeacherPath = url.startsWith(`/${locale}/mentor`)
   const isOnClientPath = url.startsWith(`/${locale}/client`)
   if (token && !isOnTeacherPath) {
-    return NextResponse.redirect(`${origin}/${locale}/teacher`)
+    return NextResponse.redirect(`${origin}/${locale}/mentor/profile`)
   } else if (!token && !isOnClientPath) {
     return NextResponse.redirect(`${origin}/${locale}/client/home`)
   }

@@ -5,6 +5,7 @@ export const localFiles = [
   'validation',
   'home',
   'langSwitcher',
-  'contact'
+  'contact',
+  'mentor'
 ]
-export const locales = ['en', 'fr', 'ar']
+export const locales = ['en', 'fr']

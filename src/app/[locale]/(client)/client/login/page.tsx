@@ -13,16 +13,6 @@ const AuthPage = (): JSX.Element => {
   const t = useTranslations('auth')
   const [isLogin, setIsLogin] = useState(true)
 
-  const handleLoginSubmit = (_data: any): void => {
-    // Handle login logic here
-    // Process login data
-  }
-
-  const handleRegisterSubmit = (_data: any): void => {
-    // Handle register logic here
-    // Process registration data
-  }
-
   const toggleMode = (): void => {
     setIsLogin(!isLogin)
   }
@@ -80,11 +70,7 @@ const AuthPage = (): JSX.Element => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              {isLogin ? (
-                <LoginForm onSubmit={handleLoginSubmit} />
-              ) : (
-                <RegistrationForm onSubmit={handleRegisterSubmit} />
-              )}
+              {isLogin ? <LoginForm /> : <RegistrationForm />}
             </motion.div>
 
             {/* Footer */}

@@ -7,15 +7,12 @@ import { SubmitHandler } from 'react-hook-form'
 import { Button, Form, FormElement, Input } from '@/src/app/shared/components'
 import useCustomForm from '@/src/app/shared/hooks/useCustomForm'
 
+import { useLoginUser } from '../hooks/useLoginUser'
 import { LoginFormData, loginSchema } from '../schemas/LoginSchema'
 
 // Login form schema
 
-interface LoginFormProps {
-  onSubmit?: (data: LoginFormData) => void
-}
-
-const LoginForm: React.FC<LoginFormProps> = ({ onSubmit: onSubmitProp }) => {
+const LoginForm: React.FC = () => {
   const t = useTranslations('auth')
 
   const { form, handleSubmit, control, reset } = useCustomForm(
@@ -27,13 +24,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit: onSubmitProp }) => {
     }
   )
 
+  const loginUserMutation = useLoginUser('auth')
+
   const onSubmit: SubmitHandler<LoginFormData> = data => {
-    if (onSubmitProp) {
-      onSubmitProp(data)
-    } else {
-      // Default login logic here
-      // Handle login submission
-    }
+    // Default login logic here
+    // Handle login submission
+    // eslint-disable-next-line no-console
+    const newData = { username: data.email, password: data.password }
+    loginUserMutation.mutate(newData)
     reset()
   }
 

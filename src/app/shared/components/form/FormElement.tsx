@@ -18,6 +18,7 @@ interface FormElementProps {
   changePropName?: string
   labelClassName?: string
   className?: string
+  errorClassName?: string
 }
 
 export const FormElement: React.FC<FormElementProps> = ({
@@ -28,6 +29,7 @@ export const FormElement: React.FC<FormElementProps> = ({
   description,
   className,
   labelClassName,
+  errorClassName,
   changePropName = 'onChange'
 }) => {
   const {
@@ -62,7 +64,11 @@ export const FormElement: React.FC<FormElementProps> = ({
         })}
       </FormControl>
       {description && <p className='text-sm text-gray-500'>{description}</p>}
-      {error && <FormMessage>{t(error.message)}</FormMessage>}
+      {error && (
+        <FormMessage className={cn(errorClassName)}>
+          {t(error.message)}
+        </FormMessage>
+      )}
     </FormItem>
   )
 }

@@ -7,11 +7,6 @@ export type CommunType = {
   name: string
 }
 
-type Error = {
-  code: string
-  detail: string
-  attr: string
-}
 export type ReturnType<T> = {
   data: T
   message: string
@@ -20,7 +15,7 @@ export type ReturnType<T> = {
 
 export type RequestError = {
   type: string
-  errors: Error[]
+  detail: string
 }
 export interface ExtendedAxiosError extends AxiosError<RequestError> {
   requestError?: RequestError
