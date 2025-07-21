@@ -1,5 +1,6 @@
 'use client'
 
+import Cookies from 'js-cookie'
 import { LogOut, Shield, Users } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
@@ -13,6 +14,7 @@ import {
   TooltipTrigger
 } from '@/src/app/shared/components'
 import { LangSwitcher } from '@/src/app/shared/components/utils/LangSwitcher'
+import { useUserData } from '@/src/lib/stores'
 import { Link, usePathname } from '@/src/navigation'
 import { pathnameType } from '@/src/types'
 
@@ -29,6 +31,7 @@ export const MentorSidebar = (): JSX.Element => {
   const isRTL = locale === 'ar'
   const translateClass = 'translate-x-1'
   const [isOpen] = useState<boolean>(true)
+  const userData = useUserData()
 
   const navItems: NavItem[] = [
     {
@@ -48,8 +51,8 @@ export const MentorSidebar = (): JSX.Element => {
   }
 
   const handleLogout = (): void => {
-    // Handle logout logic here
-    // Redirect to login page or handle authentication
+    Cookies.remove('accessToken')
+    window.location.href = `/${locale}/client/home`
   }
 
   const renderSidebarLink = (link: NavItem, index: number): JSX.Element => {
@@ -205,19 +208,38 @@ export const MentorSidebar = (): JSX.Element => {
           <div
             className={cn('px-2', isOpen === false && 'flex justify-center')}
           >
-            {isOpen === false ? (
+            {!userData ? (
+              // Skeleton Loading State
+              isOpen === false ? (
+                <div className='h-10 w-10 animate-pulse rounded-full bg-gray-300'></div>
+              ) : (
+                <div className='rounded-lg bg-gray-50 p-3'>
+                  <div className='flex items-center space-x-3'>
+                    <div className='h-10 w-10 animate-pulse rounded-full bg-gray-300'></div>
+                    <div className='flex-1 space-y-2'>
+                      <div className='h-4 w-24 animate-pulse rounded bg-gray-300'></div>
+                      <div className='h-3 w-16 animate-pulse rounded bg-gray-300'></div>
+                    </div>
+                  </div>
+                </div>
+              )
+            ) : isOpen === false ? (
               <div className='flex h-10 w-10 items-center justify-center rounded-full bg-purple-600'>
-                <span className='text-sm font-medium text-white'>JD</span>
+                <span className='text-sm font-medium text-white'>
+                  {`${userData?.firstName?.charAt(0) || 'J'}${userData?.lastName?.charAt(0) || 'D'}`}
+                </span>
               </div>
             ) : (
               <div className='rounded-lg bg-purple-50 p-3'>
                 <div className='flex items-center space-x-3'>
                   <div className='flex h-10 w-10 items-center justify-center rounded-full bg-purple-600'>
-                    <span className='text-sm font-medium text-white'>JD</span>
+                    <span className='text-sm font-medium text-white'>
+                      {`${userData?.firstName?.charAt(0) || 'J'}${userData?.lastName?.charAt(0) || 'D'}`}
+                    </span>
                   </div>
                   <div className='flex-1'>
                     <p className='text-sm font-medium text-gray-900'>
-                      John Doe
+                      {`${userData?.firstName || 'John'} ${userData?.lastName || 'Doe'} `}
                     </p>
                     <p className='text-xs text-gray-500'>Mentor</p>
                   </div>
