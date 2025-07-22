@@ -19,3 +19,9 @@ export const updateProfile = async (
 ): Promise<AxiosResponse<FetchResponse<never>>> => {
   return axiosInstance.put('profiles/current', data)
 }
+
+export const updatePicture = async (
+  data: FormData
+): Promise<AxiosResponse<FetchResponse<never>>> => {
+  return axiosInstance.post('profiles/upload-picture', data, { headers: {} })
+}

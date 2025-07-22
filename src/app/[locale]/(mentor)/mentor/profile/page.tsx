@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useMemo } from 'react'
 
+import { getFileUrl } from '@/lib/utils'
 import {
   useProfileActions,
   useProfileData,
@@ -18,16 +19,25 @@ import SubjectsSection from '@/src/modules/mentor/components/SubjectsSection'
 import TeachingMethodsSection from '@/src/modules/mentor/components/TeachingMethodsSection'
 import { getProfile } from '@/src/modules/mentor/services/getProfile'
 import { getUser } from '@/src/modules/mentor/services/getUser'
+import ProfilePageSkeleton from '@/src/modules/mentor/skeletons/ProfilePageSkeleton'
 
 const ProfilePage: React.FC = () => {
   const profileData = useProfileData()
   const userData = useUserData()
 
-  const { data: profile } = useQuery({
+  const {
+    data: profile,
+    isLoading: ProfileLoading,
+    isSuccess: ProfileSuccess
+  } = useQuery({
     queryKey: ['profile'],
     queryFn: () => getProfile()
   })
-  const { data: user } = useQuery({
+  const {
+    data: user,
+    isLoading: UserLoading,
+    isSuccess: UserSuccess
+  } = useQuery({
     queryKey: ['user'],
     queryFn: () => getUser()
   })
@@ -52,9 +62,7 @@ const ProfilePage: React.FC = () => {
       user_id: profile.data.user_id || '',
       bio: profile.data.bio || '',
       profilePicture:
-        profile.data.profilePicture ||
-        user?.data?.image ||
-        '/images/default-avatar.svg',
+        getFileUrl(profile.data.profilePicture) || '/images/default-avatar.svg',
       location: profile.data.location || '',
       hourlyRate: profile.data.hourlyRate,
       subjects: profile.data.subjects || [],
@@ -120,13 +128,16 @@ const ProfilePage: React.FC = () => {
       updateProfileField(field as keyof typeof profileData, value)
     }
   }
-
-  return (
-    <div className='min-h-screen bg-gray-50'>
-      {/* Dashboard Container */}
-      <div className='flex h-full w-full flex-col'>
-        {/* Header Section */}
-        {/* <div className='border-b border-gray-200 bg-white px-6 py-4'>
+  if (ProfileLoading || UserLoading) {
+    return <ProfilePageSkeleton />
+  }
+  if (ProfileSuccess && UserSuccess) {
+    return (
+      <div className='min-h-screen bg-gray-50'>
+        {/* Dashboard Container */}
+        <div className='flex h-full w-full flex-col'>
+          {/* Header Section */}
+          {/* <div className='border-b border-gray-200 bg-white px-6 py-4'>
           <div className='flex items-center justify-between'>
             <div>
               <h1 className='text-2xl font-bold text-gray-900'>
@@ -145,90 +156,92 @@ const ProfilePage: React.FC = () => {
           </div>
         </div> */}
 
-        {/* Main Dashboard Content */}
-        <div className='flex-1 p-6'>
-          <div className='mx-auto max-w-full space-y-6'>
-            {/* Profile Header - Full Width */}
-            <ProfileHeader
-              profileData={{
-                firstName: userData?.firstName || '',
-                lastName: userData?.lastName || '',
-                location: profileData?.location || '',
-                profilePicture: profileData?.profilePicture || '',
-                phoneNumber: userData?.phoneNumber || '',
-                gender: profileData?.gender || ''
-              }}
-              onFieldUpdate={updateField}
-            />
-
-            {/* Stats Overview - Full Width */}
-            <div className='grid grid-cols-1 gap-6 lg:grid-cols-4'>
-              <div className='lg:col-span-1'>
-                <StatsCards
-                  statsData={{
-                    currency: profileData?.currency || 'TND',
-                    hourlyRate:
-                      parseInt(profileData?.hourlyRate?.toString() || '0') || 0,
-                    yearsOfExperience:
-                      parseInt(
-                        profileData?.yearsOfExperience?.toString() || '0'
-                      ) || 0
-                  }}
-                  onFieldUpdate={updateField}
-                />
-              </div>
-
-              {/* Quick Info Cards */}
-              <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-3'>
-                <LanguagesSection
-                  languages={profileData?.languages || []}
-                  onLanguagesUpdate={updateLanguages}
-                />
-                <TeachingMethodsSection
-                  teachingMethod={profileData?.teachingMethod || ''}
-                  onMethodUpdate={updateTeachingMethod}
-                />
-              </div>
-            </div>
-
-            {/* Main Content Grid */}
-            <div className='grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3'>
-              {/* About Section - Takes more space */}
-              <div className='lg:col-span-1 xl:col-span-2'>
-                <AboutSection
-                  bio={profileData?.bio || ''}
-                  onBioUpdate={updateBio}
-                />
-              </div>
-
-              {/* Education Section */}
-              <div className='lg:col-span-1 xl:col-span-1'>
-                <EducationSection
-                  degrees={profileData?.degrees || []}
-                  onDegreesUpdate={updateDegrees}
-                />
-              </div>
-            </div>
-
-            {/* Bottom Section Grid */}
-            <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
-              {/* Subjects Section */}
-              <SubjectsSection
-                subjects={profileData?.subjects || []}
-                onSubjectsUpdate={updateSubjects}
+          {/* Main Dashboard Content */}
+          <div className='flex-1 p-6'>
+            <div className='mx-auto max-w-full space-y-6'>
+              {/* Profile Header - Full Width */}
+              <ProfileHeader
+                profileData={{
+                  firstName: userData?.firstName || '',
+                  lastName: userData?.lastName || '',
+                  location: profileData?.location || '',
+                  profilePicture: profileData?.profilePicture || '',
+                  phoneNumber: userData?.phoneNumber || '',
+                  gender: profileData?.gender || ''
+                }}
+                onFieldUpdate={updateField}
               />
 
-              {/* Teaching Levels */}
-              <LevelsSection
-                levels={profileData?.levels || []}
-                onLevelsUpdate={updateLevels}
-              />
+              {/* Stats Overview - Full Width */}
+              <div className='grid grid-cols-1 gap-6 lg:grid-cols-4'>
+                <div className='lg:col-span-1'>
+                  <StatsCards
+                    statsData={{
+                      currency: profileData?.currency || 'TND',
+                      hourlyRate:
+                        parseInt(profileData?.hourlyRate?.toString() || '0') ||
+                        0,
+                      yearsOfExperience:
+                        parseInt(
+                          profileData?.yearsOfExperience?.toString() || '0'
+                        ) || 0
+                    }}
+                    onFieldUpdate={updateField}
+                  />
+                </div>
+
+                {/* Quick Info Cards */}
+                <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-3'>
+                  <LanguagesSection
+                    languages={profileData?.languages || []}
+                    onLanguagesUpdate={updateLanguages}
+                  />
+                  <TeachingMethodsSection
+                    teachingMethod={profileData?.teachingMethod || ''}
+                    onMethodUpdate={updateTeachingMethod}
+                  />
+                </div>
+              </div>
+
+              {/* Main Content Grid */}
+              <div className='grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3'>
+                {/* About Section - Takes more space */}
+                <div className='lg:col-span-1 xl:col-span-2'>
+                  <AboutSection
+                    bio={profileData?.bio || ''}
+                    onBioUpdate={updateBio}
+                  />
+                </div>
+
+                {/* Education Section */}
+                <div className='lg:col-span-1 xl:col-span-1'>
+                  <EducationSection
+                    degrees={profileData?.degrees || []}
+                    onDegreesUpdate={updateDegrees}
+                  />
+                </div>
+              </div>
+
+              {/* Bottom Section Grid */}
+              <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+                {/* Subjects Section */}
+                <SubjectsSection
+                  subjects={profileData?.subjects || []}
+                  onSubjectsUpdate={updateSubjects}
+                />
+
+                {/* Teaching Levels */}
+                <LevelsSection
+                  levels={profileData?.levels || []}
+                  onLevelsUpdate={updateLevels}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default ProfilePage

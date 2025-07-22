@@ -59,7 +59,7 @@ export const LangSwitcher: React.FC = () => {
           })}
         </Button>
         {isOptionsExpanded && (
-          <div className='absolute left-0 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg md:right-5'>
+          <div className='absolute left-0 z-50 mt-2 w-[150px] origin-top-right rounded-md bg-white shadow-lg md:right-5'>
             <div
               className='py-1'
               role='menu'

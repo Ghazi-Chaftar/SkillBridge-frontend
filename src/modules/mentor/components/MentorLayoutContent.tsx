@@ -25,7 +25,7 @@ const MentorLayoutContent: React.FC<MentorLayoutContentProps> = ({
 
   // Render with header and sidebar for mentor pages
   return (
-    <div className='flex h-screen bg-gray-50'>
+    <div className='flex h-screen bg-gray-50 pt-16 lg:pt-0'>
       <MentorSidebar />
       <div className='flex flex-1 flex-col overflow-hidden transition-[margin-left,margin-right] duration-300 ease-in-out lg:ml-[270px]'>
         <main className='flex-1 overflow-y-auto p-6'>{children}</main>

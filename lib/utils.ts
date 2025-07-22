@@ -100,11 +100,7 @@ export const handleDelete = async ({
 }
 
 export const getFileUrl = (imagePath?: string): string | undefined => {
-  if (imagePath?.toString()?.startsWith('/')) {
-    return `http://127.0.0.1:8000${imagePath}`
-  } else {
-    return imagePath
-  }
+  return `${process.env.NEXT_PUBLIC_BACKEND_URL}${imagePath}`
 }
 export function formatTime(time: string): string {
   if (typeof time !== 'string') {

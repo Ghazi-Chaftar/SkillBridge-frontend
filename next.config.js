@@ -10,7 +10,9 @@ const nextConfig = {
   images: {
     domains: [
       process.env.NEXT_PUBLIC_BACKEND_DOMAIN,
-      'archimatchsg.blob.core.windows.net'
+      'skill-bridge-lime.vercel.app',
+      '127.0.0.1',
+      'localhost'
     ]
   },
   reactStrictMode: false,

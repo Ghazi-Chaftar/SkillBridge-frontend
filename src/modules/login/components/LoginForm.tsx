@@ -74,6 +74,9 @@ const LoginForm: React.FC = () => {
           <Button
             type='submit'
             className='h-12 w-full bg-purple-600 text-white hover:bg-purple-700'
+            disabled={loginUserMutation.isPending}
+            isPending={loginUserMutation.isPending}
+            isSuccess={loginUserMutation.isSuccess}
           >
             {t('form.loginButton')}
           </Button>

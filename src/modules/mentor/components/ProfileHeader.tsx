@@ -1,9 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Camera, Edit3, MapPin, Phone, User } from 'lucide-react'
+import { Edit3, MapPin, Phone, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SubmitHandler } from 'react-hook-form'
 
 import {
@@ -18,9 +18,14 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/src/app/shared/components'
+import ImageUpload from '@/src/app/shared/components/media/ImageUpload'
 import useCustomForm from '@/src/app/shared/hooks/useCustomForm'
 
-import { useUpdateProfile, useUpdateUser } from '../hooks/profileManagement'
+import {
+  useUpdatePicture,
+  useUpdateProfile,
+  useUpdateUser
+} from '../hooks/profileManagement'
 import {
   ProfileHeaderFormData,
   profileHeaderSchema
@@ -45,7 +50,10 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const t = useTranslations('mentor.profile')
   const tauth = useTranslations('auth')
   const [isEditing, setIsEditing] = useState(false)
-
+  const [profileImage, setProfileImage] = useState<File | null>(null)
+  const [imagePreview, setImagePreview] = useState<string | null>(
+    profileData.profilePicture || null
+  )
   const onEditToggle = (): void => {
     setIsEditing(prev => !prev)
   }
@@ -63,8 +71,23 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   )
   const updateUserMutation = useUpdateUser('user')
   const updateProfileMutation = useUpdateProfile('profile')
+  const updateProfilePictureMutation = useUpdatePicture('profile')
 
-  const onSubmit: SubmitHandler<ProfileHeaderFormData> = data => {
+  const handleImageChange = (file: File | null, preview: string | null) => {
+    setProfileImage(file)
+    setImagePreview(preview)
+    if (preview && file) {
+      onFieldUpdate('profilePicture', preview)
+
+      // Create FormData with the exact field name your FastAPI expects
+      const formData = new FormData()
+      formData.append('file', file) // This matches your FastAPI parameter name exactly
+
+      // Send FormData directly
+      updateProfilePictureMutation.mutate(formData)
+    }
+  }
+  const onSubmit: SubmitHandler<ProfileHeaderFormData> = async data => {
     const userDataChanged =
       data.firstName !== profileData.firstName ||
       data.lastName !== profileData.lastName ||
@@ -73,7 +96,6 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
     const profileDataChanged =
       data.gender !== profileData.gender ||
       data.location !== profileData.location
-
     onFieldUpdate('firstName', data.firstName)
     onFieldUpdate('lastName', data.lastName)
     onFieldUpdate('phoneNumber', data.phoneNumber)
@@ -89,16 +111,22 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
     }
 
     if (profileDataChanged) {
-      updateProfileMutation.mutate({
+      const profileUpdateData = {
         gender: data.gender || 'male',
-        location: data.location
-      })
+        location: data.location,
+        ...(profileImage && { profilePicture: imagePreview })
+      }
+
+      updateProfileMutation.mutate(profileUpdateData)
     }
 
     reset()
     setIsEditing(false)
   }
 
+  useEffect(() => {
+    setImagePreview(profileData.profilePicture)
+  }, [profileData.profilePicture])
   return (
     <motion.div
       className='mb-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm sm:mb-6 sm:p-6 lg:mb-8 lg:p-8'
@@ -110,24 +138,12 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-start lg:gap-8'>
             {/* Profile Picture */}
-            <div className='group relative mx-auto lg:mx-0'>
-              <div className='flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-purple-100 to-blue-100 sm:h-28 sm:w-28 lg:h-32 lg:w-32'>
-                {profileData.profilePicture ? (
-                  <img
-                    src={profileData.profilePicture}
-                    alt={t('profilePicture')}
-                    className='h-full w-full object-cover'
-                  />
-                ) : (
-                  <User className='h-12 w-12 text-gray-400 sm:h-14 sm:w-14 lg:h-16 lg:w-16' />
-                )}
-              </div>
-              {isEditing && (
-                <button className='absolute inset-0 flex items-center justify-center rounded-2xl bg-black/50 opacity-0 transition-opacity group-hover:opacity-100'>
-                  <Camera className='h-6 w-6 text-white sm:h-7 sm:w-7 lg:h-8 lg:w-8' />
-                </button>
-              )}
-            </div>
+            <ImageUpload
+              value={imagePreview}
+              onChange={handleImageChange}
+              disabled={!isEditing}
+              maxSize={5}
+            />
 
             {/* Profile Info */}
             <div className='flex-1 space-y-3 sm:space-y-4'>

@@ -141,8 +141,10 @@ const RegistrationForm: React.FC = () => {
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
           <Button
             type='submit'
-            disabled={registerUserMutation.isPending}
             className='h-12 w-full bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50'
+            disabled={registerUserMutation.isPending}
+            isPending={registerUserMutation.isPending}
+            isSuccess={registerUserMutation.isSuccess}
           >
             {registerUserMutation.isPending
               ? 'Creating Account...'
